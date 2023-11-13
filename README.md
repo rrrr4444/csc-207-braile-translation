@@ -1,4 +1,4 @@
-# csc-207-braile-translation
+# csc-207-braille-translation
 
 November 16th, 2023
 
