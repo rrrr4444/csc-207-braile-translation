@@ -29,4 +29,25 @@ class BitTree {
     return node;
   } // setRecurse()
 
+  String get(String bits) {
+    if (bits.length() != this.depth || !bits.matches("[0-9]+")) {
+      throw new IllegalArgumentException();
+    } // if
+    return getRecurse(bits, this.root);
+  } // get()
+
+  private String getRecurse(String bits, BitTreeNode node) {
+    if (node == null) {
+      throw new IllegalArgumentException();
+    } else if (node.isLeaf() && bits.isEmpty()) {
+      return ((BitTreeLeaf) node).value;
+    } else {
+      if (bits.charAt(0) == '0') {
+        return getRecurse(bits.substring(1), node.left);
+      } else {
+        return getRecurse(bits.substring(1), node.right);
+      } // if/else
+    } // if/else
+  } // get()
+
 } // class BitTree
