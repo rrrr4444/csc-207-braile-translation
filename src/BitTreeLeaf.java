@@ -1,8 +1,8 @@
 class BitTreeLeaf extends BitTreeNode {
-  final String translation;
-  BitTreeLeaf(String bits, String translation) {
+  String value;
+  BitTreeLeaf(String bits, String value) {
     super(bits);
-    this.translation = translation;
+    this.value = value;
   } // BitTreeNode
 
   @Override
