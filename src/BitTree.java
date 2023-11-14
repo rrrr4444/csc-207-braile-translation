@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.io.InputStream;
 
 class BitTree {
   private final int depth;
@@ -67,5 +69,13 @@ class BitTree {
       dumpRecurse(pen, node.right);
     } // if/else
   } // dump()
+
+  void set(InputStream source) {
+    String[] lines = source.toString().split("\n");
+    for (String line: lines) {
+      String[] elements = line.split(",");
+      this.set(elements[0], elements[1]);
+    } // for
+  } // set()
 
 } // class BitTree
