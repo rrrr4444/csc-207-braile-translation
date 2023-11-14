@@ -1,5 +1,5 @@
-import java.io.PrintWriter;
 import java.io.InputStream;
+import java.io.PrintWriter;
 
 class BitTree {
   private final int depth;
@@ -71,7 +71,7 @@ class BitTree {
 
   void set(InputStream source) {
     String[] lines = source.toString().split("\n");
-    for (String line: lines) {
+    for (String line : lines) {
       String[] elements = line.split(",");
       this.set(elements[0], elements[1]);
     } // for
