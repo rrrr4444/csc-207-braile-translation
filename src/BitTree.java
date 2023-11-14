@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 class BitTree {
   private final int depth;
   private BitTreeNode root = null;
@@ -49,5 +51,21 @@ class BitTree {
       } // if/else
     } // if/else
   } // get()
+
+  void dump(PrintWriter pen) {
+    dumpRecurse(pen, this.root);
+  } // dump()
+
+  private void dumpRecurse(PrintWriter pen, BitTreeNode node) {
+    if (node == null) {
+      return;
+    } // if
+    if (node.isLeaf()) {
+      pen.println(node.bits + "," + ((BitTreeLeaf) node).value);
+    } else {
+      dumpRecurse(pen, node.left);
+      dumpRecurse(pen, node.right);
+    } // if/else
+  } // dump()
 
 } // class BitTree
