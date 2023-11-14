@@ -69,7 +69,7 @@ class BitTree {
     } // if/else
   } // dump()
 
-  void set(InputStream source) {
+  void load(InputStream source) {
     String[] lines = source.toString().split("\n");
     for (String line : lines) {
       String[] elements = line.split(",");
