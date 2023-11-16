@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 
 /**
  * Stores mappings from bits to values.
+ *
  * @author Reed Colloton
  */
 class BitTree {
