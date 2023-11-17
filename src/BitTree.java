@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 
@@ -105,9 +106,17 @@ class BitTree {
    * Reads a series of lines of the form bits,value and stores them in the tree.
    */
   void load(InputStream source) {
-    String[] lines = source.toString().split("\n");
+    String[] lines;
+    try {
+      lines = new String(source.readAllBytes()).split("\n");
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
     for (String line : lines) {
       String[] elements = line.split(",");
+      if (elements[0].equals("h")) {
+        int ik = 0;
+      }
       this.set(elements[0], elements[1]);
     } // for
   } // set()

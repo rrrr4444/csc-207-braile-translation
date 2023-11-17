@@ -15,9 +15,9 @@ public class BrailleASCIITables {
    * Constructor
    */
   BrailleASCIITables() {
-    try (FileInputStream brailleFile = new FileInputStream("translations/ascii.txt");
-         FileInputStream asciiFile = new FileInputStream("translations/braille.txt");
-         FileInputStream unicodeFile = new FileInputStream("translations/unicode.txt")) {
+    try (FileInputStream brailleFile = new FileInputStream("src/translations/braille.txt");
+         FileInputStream asciiFile = new FileInputStream("src/translations/ascii.txt");
+         FileInputStream unicodeFile = new FileInputStream("src/translations/unicode.txt")) {
       ASCIIToBraille.load(brailleFile);
       BrailleToASCII.load(asciiFile);
       BrailleToUnicode.load(unicodeFile);
@@ -27,17 +27,19 @@ public class BrailleASCIITables {
   } // BrailleASCIITables
 
   /**
-   * Converts an ASCII character to a string of bits representing the corresponding braille character..
+   * Converts an ASCII character to a string of bits representing the corresponding braille character.
    */
   String toBraille(char letter) {
-    return ASCIIToBraille.get(letter + "");
+    String bits = Integer.toString(letter, 2);
+    bits = "0".repeat(8 - bits.length()) + bits;
+    return ASCIIToBraille.get(bits);
   } // toBraille()
 
   /**
    * Converts a string of bits representing a braille character to the corresponding ASCII character.
    */
   String toASCII(String bits) {
-    return BrailleToUnicode.get(bits);
+    return BrailleToASCII.get(bits);
   } // toASCII()
 
   /**

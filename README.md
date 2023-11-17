@@ -10,3 +10,4 @@ Description: This is a simple translator between braille and ascii/unicode writt
 
 Additional resources:
     - https://docs.oracle.com/javase/tutorial/index.html
+    - https://stackoverflow.com/questions/18380901/how-do-i-convert-unicode-codepoints-to-their-character-representation
